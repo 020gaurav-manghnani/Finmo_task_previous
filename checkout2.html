@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Form</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>Payment Form</h1>
+    <form onsubmit="processPayment(event)">
+      <label for="amount">Amount:</label>
+      <input type="number" name="amount" required>
+      <br>
+      <label for="currency">Currency:</label>
+      <select name="currency" required>
+        <option value="AUD">AUD</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+      <br>
+      <label for="country">Country:</label>
+      <input type="text" name="country" required>
+      <br>
+      <label for="redirect_url">Redirect URL:</label>
+      <input type="url" name="redirect_url" required>
+      <br>
+      <button type="submit">Pay Now</button>
+    </form>
+    <script>
+      function processPayment(event) {
+        event.preventDefault();
+        var amount = document.getElementsByName("amount")[0].value;
+        var currency = document.getElementsByName("currency")[0].value;
+        var country = document.getElementsByName("country")[0].value;
+        var redirect_url = document.getElementsByName("redirect_url")[0].value;
+        var data = JSON.stringify({ amount, currency, country, redirect_url });
+        var config = {
+          method: "post",
+          url: "https://api.finmo.net/v1/checkout",
+          headers: {
+            Authorization: "Basic PGFjY2Vzc19rZXk+OjxzZWNyZXRfa2V5Pg==",
+            "Content-Type": "application/json",
+          },
+          data: data,
+        };
+        axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            // Redirect to the payment gateway
+            window.location.href = response.data.payment_url;
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    </script>
+  </body>
+</html>

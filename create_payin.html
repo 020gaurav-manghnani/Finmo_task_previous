@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payin Form</title>
+  </head>
+  <body>
+    <h1>Make a Payin</h1>
+    <form id="payin-form">
+      <label for="amount">Amount</label>
+      <input type="number" name="amount" id="amount" required>
+      
+      <label for="currency">Currency</label>
+      <select name="currency" id="currency" required>
+        <option value="USD">AUD</option>
+        
+      </select>
+      
+      <label for="description">Description</label>
+      <input type="text" name="description" id="description" required>
+      
+      <label for="payin-method-name">Payin Method Name</label>
+      <select name="payin-method-name" id="payin-method-name" required>
+        <option value="card">Card</option>
+        <option value="bank_transfer">Bank Transfer</option>
+      </select>
+      
+      <label for="payin-method-param">Payin Method Parameter</label>
+      <input type="text" name="payin-method-param" id="payin-method-param" required>
+      
+      <label for="organization-reference-id">Organization Reference ID</label>
+      <input type="text" name="organization-reference-id" id="organization-reference-id" required>
+      
+      <label for="metadata">Metadata</label>
+      <textarea name="metadata" id="metadata"></textarea>
+      
+      <button type="submit" id="payin-button">Make Payin</button>
+    </form>
+    
+    <script src="create_payin_api.js"></script>
+  </body>
+</html>

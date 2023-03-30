@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Payin List</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Payin List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Amount</th>
+          <th>Currency</th>
+          <th>Description</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody id="payins-list">
+      </tbody>
+    </table>
+    <script>
+      const apiUrl ='https://api.finmo.net/v1/checkout' ;
+
+      const status = 'PENDING';
+      const createdAt = '2022-03-20';
+      const authHeader = "Basic PGFjY2Vzc19rZXk+OjxzZWNyZXRfa2V5Pg==";
+
+      const payinsList = document.getElementById('payins-list');
+
+      fetch(`${apiUrl}?status=${status}&created_at=${createdAt}`, {
+        headers: {
+          'Authorization': authHeader,
+        },
+      })
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(payin => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${payin.id}</td>
+              <td>${payin.amount}</td>
+              <td>${payin.currency}</td>
+              <td>${payin.description}</td>
+              <td>${payin.created_at}</td>
+            `;
+            payinsList.appendChild(tr);
+          });
+        })
+        .catch(error => console.error(error));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+  }
+  
+  #checkout-summary {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  #checkout-summary h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  #checkout-summary p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  #checkout-summary p strong {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  #checkout-summary span {
+    font-weight: normal;
+  }
+  

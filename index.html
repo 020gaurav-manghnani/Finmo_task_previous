@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Finmo</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Finmo</h1>
+    </header>
+    <section class="outlets">
+      <h2>Choose an Outlet</h2>
+      <ul>
+        <li>
+          <h3>Outlet 1</h3>
+          <button class="outlet-btn" data-outlet-id="1">Select</button>
+        </li>
+        <li>
+          <h3>Outlet 2</h3>
+          <button class="outlet-btn" data-outlet-id="2">Select</button>
+        </li>
+        <li>
+          <h3>Outlet 3</h3>
+          <button class="outlet-btn" data-outlet-id="3">Select</button>
+        </li>
+      </ul>
+    </section>
+
+    
+    <!-- Products container section -->
+    <section class="products-container">
+      <ol class="product-list">
+        <!-- Products will be added dynamically here -->
+      </ol>
+    </section>
+    <button class="continue-btn">Continue</button>
+
+    <!-- Display sum result here -->
+    <div class="sum-container"></div>
+
+    <!-- Shopping cart section -->
+    <section class="cart">
+      <h2>Shopping Cart</h2>
+      <ul class="cart-items"></ul>
+      <div class="cart-value"></div>
+      <button class="checkout-btn">Checkout</button>
+    </section>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script type="module" src="index.js"></script>
+
+    <!-- <script src="checkout.js"></script> -->
+    <script type="module" src="checkout.js"></script>
+    <script type="module" src="checkout_summary.js"></script>
+
+  </body>
+</html>
